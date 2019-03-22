@@ -6,8 +6,13 @@ class Signup extends Component {
 		super()
 		this.state = {
 			username: '',
+			firstname: '',
+			lastname: '',
+			email: '',
 			password: '',
 			confirmPassword: '',
+			imageURL: '',
+			date: ''
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,7 +31,13 @@ class Signup extends Component {
 		//request to server to add a new username/password
 		axios.post('/user/', {
 			username: this.state.username,
-			password: this.state.password
+			firstname: this.state.firstname,
+			lastname: this.state.lastname,
+			email: this.state.email,
+			password: this.state.password,
+			confirmPassword: this.state.confirmPassword,
+			imageURL: this.state.imageURL,
+			date: this.state.date
 		})
 			.then(response => {
 				console.log(response)
@@ -53,26 +64,75 @@ render() {
 			<form className="form-horizontal">
 				<div className="form-group">
 					<div className="col-1 col-ml-auto">
-						<label className="form-label" htmlFor="username">Username</label>
+						<label className="form-label" htmlFor="username">Username: </label>
 					</div>
 					<div className="col-3 col-mr-auto">
 						<input className="form-input"
 							type="text"
 							id="username"
 							name="username"
-							placeholder="Username"
+							placeholder="Enter your Pet's Name or Select a Username"
 							value={this.state.username}
 							onChange={this.handleChange}
 						/>
 					</div>
 				</div>
+
+				<div className="form-group">
+					<div className="col-1 col-ml-auto">
+						<label className="form-label" htmlFor="firstname">First Name: </label>
+					</div>
+					<div className="col-3 col-mr-auto">
+						<input className="form-input"
+							type="text"
+							id="firstname"
+							name="firstname"
+							placeholder="Owner's First Name"
+							value={this.state.firstname}
+							onChange={this.handleChange}
+						/>
+					</div>
+				</div>
+
+				<div className="form-group">
+					<div className="col-1 col-ml-auto">
+						<label className="form-label" htmlFor="lastname">Last Name: </label>
+					</div>
+					<div className="col-3 col-mr-auto">
+						<input className="form-input"
+							type="text"
+							id="lastname"
+							name="lastname"
+							placeholder="Owner's Last Name"
+							value={this.state.lastname}
+							onChange={this.handleChange}
+						/>
+					</div>
+				</div>
+
+				<div className="form-group">
+					<div className="col-1 col-ml-auto">
+						<label className="form-label" htmlFor="email">Email: </label>
+					</div>
+					<div className="col-3 col-mr-auto">
+						<input className="form-input"
+							type="text"
+							id="email"
+							name="email"
+							placeholder="Email Address"
+							value={this.state.email}
+							onChange={this.handleChange}
+						/>
+					</div>
+				</div>
+
 				<div className="form-group">
 					<div className="col-1 col-ml-auto">
 						<label className="form-label" htmlFor="password">Password: </label>
 					</div>
 					<div className="col-3 col-mr-auto">
 						<input className="form-input"
-							placeholder="password"
+							placeholder="Password"
 							type="password"
 							name="password"
 							value={this.state.password}
@@ -80,6 +140,39 @@ render() {
 						/>
 					</div>
 				</div>
+
+				<div className="form-group">
+					<div className="col-1 col-ml-auto">
+						<label className="form-label" htmlFor="confirmPassword">Password: </label>
+					</div>
+					<div className="col-3 col-mr-auto">
+						<input className="form-input"
+							type="password"
+							id="confirmPassword"
+							name="confirmPassword"
+							placeholder="Confirm Password"
+							value={this.state.confirmPassword}
+							onChange={this.handleChange}
+						/>
+					</div>
+				</div>
+
+				<div className="form-group">
+					<div className="col-1 col-ml-auto">
+						<label className="form-label" htmlFor="imageURL">Photo: </label>
+					</div>
+					<div className="col-3 col-mr-auto">
+						<input className="form-input"
+							type="text"
+							id="imageURL"
+							name="imageURL"
+							placeholder="Enter a URL for your Pet's photo"
+							value={this.state.imageURL}
+							onChange={this.handleChange}
+						/>
+					</div>
+				</div>
+
 				<div className="form-group ">
 					<div className="col-7"></div>
 					<button
