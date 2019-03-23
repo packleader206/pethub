@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
+import axios from 'axios';
+import { Route } from 'react-router-dom';
+
 // components
-import Signup from './components/sign-up'
-import LoginForm from './components/login-form'
-import Navbar from './components/navbar'
-import Home from './components/home'
+import Signup from './components/Signup';
+import LoginForm from './components/Login';
+import Navbar from './components/Nav';
+import Home from './components/Home';
+import Footer from "./components/Footer";
 
 class App extends Component {
   constructor() {
@@ -21,32 +23,32 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getUser()
+    this.getUser();
   }
 
   updateUser (userObject) {
-    this.setState(userObject)
+    this.setState(userObject);
   }
 
   getUser() {
     axios.get('/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
+      console.log('Get user response: ');
+      console.log(response.data);
       if (response.data.user) {
         console.log('Get User: There is a user saved in the server session: ')
 
         this.setState({
           loggedIn: true,
           username: response.data.user.username
-        })
+        });
       } else {
         console.log('Get user: no user');
         this.setState({
           loggedIn: false,
           username: null
-        })
+        });
       }
-    })
+    });
   }
 
   render() {
@@ -74,6 +76,8 @@ class App extends Component {
           render={() =>
             <Signup/>}
         />
+
+        <Footer />
 
       </div>
     );

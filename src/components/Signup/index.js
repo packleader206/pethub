@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
+import "../App.css";
 
 class Signup extends Component {
 	constructor() {
-		super()
+		super();
 		this.state = {
 			username: '',
 			firstname: '',
@@ -13,20 +14,20 @@ class Signup extends Component {
 			confirmPassword: '',
 			imageURL: '',
 			date: ''
-
-		}
+        }
+        
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
-		})
+		});
 	}
 	handleSubmit(event) {
 		console.log('sign-up handleSubmit, username: ')
-		console.log(this.state.username)
-		event.preventDefault()
+		console.log(this.state.username);
+		event.preventDefault();
 
 		//request to server to add a new username/password
 		axios.post('/user/', {
@@ -45,15 +46,15 @@ class Signup extends Component {
 					console.log('successful signup')
 					this.setState({ //redirect to login page
 						redirectTo: '/login'
-					})
+					});
 				} else {
 					console.log('username already taken')
 				}
 			}).catch(error => {
 				console.log('signup error: ')
-				console.log(error)
+				console.log(error);
 
-			})
+			});
 	}
 
 

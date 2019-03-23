@@ -1,11 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import "../App.css";
 
 class Home extends Component {
-    constructor() {
-        super()
-    }
-
-
+    
     render() {
         const imageStyle = {
             width: 400
@@ -16,8 +13,7 @@ class Home extends Component {
                 <img style={imageStyle} src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" />
             </div>
         )
-
     }
 }
 
-export default Home
+export default Home;
