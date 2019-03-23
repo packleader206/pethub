@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import { Route, Link } from 'react-router-dom'
-import logo from '../logo.svg';
-import '../App.css';
-import axios from 'axios'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 class Navbar extends Component {
     constructor() {
@@ -20,16 +18,16 @@ class Navbar extends Component {
             this.props.updateUser({
               loggedIn: false,
               username: null
-            })
+            });
           }
         }).catch(error => {
-            console.log('Logout error')
-        })
+            console.log('Logout error');
+        });
       }
 
     render() {
         const loggedIn = this.props.loggedIn;
-        console.log('navbar render, props: ')
+        console.log('navbar render, props: ');
         console.log(this.props);
         
         return (
@@ -45,21 +43,16 @@ class Navbar extends Component {
                             </section>
                         ) : (
                                 <section className="navbar-section">
-                                    <Link to="/" className="btn btn-link text-secondary">
-                                        <span className="text-secondary">home</span>
-                                        </Link>
-                                    <Link to="/login" className="btn btn-link text-secondary">
-                                    <span className="text-secondary">login</span>
-				</Link>
-                                    <Link to="/signup" className="btn btn-link">
-                                    <span className="text-secondary">sign up</span>
-				</Link>
+                                    <Button href = "/" variant="contained" color="grey">home</Button>
+
+                                    <Button href = "/login" variant="contained" color="danger">login</Button>
+
+                                    <Button href = "/signup" variant="contained" color="primary">sign up</Button>
                                 </section>
                             )}
                     </div>
                     <div className="col-4 col-mr-auto">
                     <div id="top-filler"></div>
-                        <img src={logo} className="App-logo" alt="logo" />
                         <h1 className="App-title">Pethub</h1>
                     </div>
                 </header>
