@@ -31,11 +31,6 @@ const userSchema = new Schema({
 		unique: false, 
 		required: true
 	},
-	confirmPassword: {
-		type: String,
-		unique: false,
-		required: true
-	},
 	imageURL: {
 		type: String,
 		unique: true,

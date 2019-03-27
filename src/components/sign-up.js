@@ -10,7 +10,6 @@ class Signup extends Component {
 			lastname: '',
 			email: '',
 			password: '',
-			confirmPassword: '',
 			imageURL: '',
 			date: ''
 
@@ -28,14 +27,13 @@ class Signup extends Component {
 		console.log(this.state.username)
 		event.preventDefault()
 
-		//request to server to add a new username/password
+		//request to server to add a new user
 		axios.post('/user/', {
 			username: this.state.username,
 			firstname: this.state.firstname,
 			lastname: this.state.lastname,
 			email: this.state.email,
 			password: this.state.password,
-			confirmPassword: this.state.confirmPassword,
 			imageURL: this.state.imageURL,
 			date: this.state.date
 		})
@@ -136,22 +134,6 @@ render() {
 							type="password"
 							name="password"
 							value={this.state.password}
-							onChange={this.handleChange}
-						/>
-					</div>
-				</div>
-
-				<div className="form-group">
-					<div className="col-1 col-ml-auto">
-						<label className="form-label" htmlFor="confirmPassword">Password: </label>
-					</div>
-					<div className="col-3 col-mr-auto">
-						<input className="form-input"
-							type="password"
-							id="confirmPassword"
-							name="confirmPassword"
-							placeholder="Confirm Password"
-							value={this.state.confirmPassword}
 							onChange={this.handleChange}
 						/>
 					</div>
