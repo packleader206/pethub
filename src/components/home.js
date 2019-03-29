@@ -11,11 +11,12 @@ class Home extends Component {
             width: 400
         }
         return (
+            
             <div>
                 <p>nick nack paddy whack</p>
                 <img style={imageStyle} src="dogbone.png" />
             </div>
-        )
+    )
 
     }
 }

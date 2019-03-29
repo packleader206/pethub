@@ -76,9 +76,6 @@ class Navbar extends Component {
                             <Link to="/shelters" className="btn btn-link">
                                 <span className="text-secondary">Shelters</span>
                             </Link>
-                            <Link to="/" className="btn btn-link">
-                                <span className="text-secondary">Community</span>
-                            </Link>
                         </section>
 
                     </div>
